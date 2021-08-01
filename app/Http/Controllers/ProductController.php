@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $data = product::all();
+        return $data ;
     }
 
     /**
@@ -35,7 +36,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
+        $shopcar = product::create(['user_id'=>$user->id,
+                                    'name'=>$request->name,
+                                    'price'=>$request->price,
+                                    'quantity'=>$request->quantity,
+                                    'picture_path'=>""]);
+
+        return response('新增成功');
     }
 
     /**
@@ -69,7 +77,18 @@ class ProductController extends Controller
      */
     public function update(Request $request, product $product)
     {
-        //
+        $user = auth()->user();
+        if(($user->id)!==($product->user_id)){
+            return response('非用戶產品');
+        }
+
+        $product->update([  'user_id'=>$user->id,
+                            'name'=>$request->name,
+                            'price'=>$request->price,
+                            'quantity'=>$request->quantity,
+                            'picture_path'=>""]);
+
+        return response('更新成功');
     }
 
     /**
@@ -80,6 +99,12 @@ class ProductController extends Controller
      */
     public function destroy(product $product)
     {
-        //
+        $user = auth()->user();
+        if(($user->id)!==($product->user_id)){
+            return response('非用戶產品');
+        }
+
+        $product->delete();
+        return response('刪除成功');
     }
 }

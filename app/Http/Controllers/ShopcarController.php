@@ -14,7 +14,11 @@ class ShopcarController extends Controller
      */
     public function index()
     {
-        //
+        return shopcar::find(1)->checkout();
+        $user = auth()->user();
+        $shopcar = shopcar::where('user_id','=',$user->id)->get();
+
+        return $shopcar;
     }
 
     /**
@@ -35,7 +39,11 @@ class ShopcarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
+        $shopcar = shopcar::create(['user_id'=>$user->id,
+                                    'product_id'=>$request->product_id]);
+
+        return $shopcar;
     }
 
     /**
@@ -69,7 +77,12 @@ class ShopcarController extends Controller
      */
     public function update(Request $request, shopcar $shopcar)
     {
-        //
+        $user = auth()->user();
+
+        $shopcar->update([  'user_id'=>$user->id,
+                            'product_id'=>$request->product_id]);
+
+        return response('更新成功');
     }
 
     /**
@@ -80,6 +93,7 @@ class ShopcarController extends Controller
      */
     public function destroy(shopcar $shopcar)
     {
-        //
+        $shopcar->delete();
+        return response('刪除成功');
     }
 }

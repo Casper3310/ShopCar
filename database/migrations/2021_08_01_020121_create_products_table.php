@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name',100);
             $table->integer('price');
+            $table->integer('quantity');
             $table->text('picture_path');
             $table->timestamps();
 
