@@ -16,8 +16,12 @@ const routes = [
         component: () => import('./components/ShopHome/ShopHome.vue')
     },
     {
+        path: '/login',
+        name: 'login',
+        component: () => import('./components/Login/Login.vue')
+    },
+    {
         path: '/admin',
-        name: 'admin',
         component: () => import('./components/Admin/AdminPage.vue'),
         children: [{
             path: 'MangerProduct',

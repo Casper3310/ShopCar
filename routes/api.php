@@ -21,6 +21,7 @@ Route::post('register', 'AuthController@register');
 Route::post('Login', 'AuthController@Login');
 Route::get('product','ProductController@index');
 
+
 route::group(['middleware'=>'auth:api'],function(){
     Route::get('Logout', 'AuthController@Logout');
     Route::resource('shopcar', 'ShopcarController');

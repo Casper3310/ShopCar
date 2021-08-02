@@ -30,6 +30,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import Vue from 'vue';
+import store from './store'
+
 import App from './App.vue'
 import router from './router'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -38,6 +40,7 @@ import 'bootstrap'
 const app = new Vue({
     el: '#app',
     router,
+    store,
     render: h => h(App)
 
 });

@@ -1,7 +1,6 @@
 <template>
     <div>
         <Navigation></Navigation>
-        <Header></Header>
         <Section></Section>
         <Footer></Footer>
     </div>
@@ -18,6 +17,12 @@ export default {
         Header,
         Section,
         Footer
-    }
+    },
+    data() {
+        return {};
+    },
+    mounted() {},
+    methods: {},
+    destroy() {}
 };
 </script>
