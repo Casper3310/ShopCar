@@ -20,6 +20,6 @@ class order extends Model
 
     public function product()
     {
-        return $this->hasMany('App\product');
+        return $this->belongsTo('App\product');
     }
 }

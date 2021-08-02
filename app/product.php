@@ -15,11 +15,21 @@ class product extends Model
 
     public function shopcar()
     {
-        return $this->belongsTo('App\shopcar');
+        return $this->hasMany('App\shopcar');
     }
 
     public function order()
     {
-        return $this->belongsTo('App\order');
+        return $this->hasMany('App\order');
+    }
+
+    public function checkquantity($Request_quantity){
+        if($Request_quantity > $this->quantity){
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 }

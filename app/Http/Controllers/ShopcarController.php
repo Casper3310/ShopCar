@@ -3,10 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\shopcar;
+use App\product;
 use Illuminate\Http\Request;
 
 class ShopcarController extends Controller
 {
+    public function checkout(){
+        $user = auth()->user();
+        $shopcars = shopcar::where('user_id','=',$user->id)
+                            ->where('check_out','=',0)
+                            ->get();
+        
+        if(count($shopcars)==0){
+            return response('無購物車項目');
+        }
+
+        foreach ($shopcars as  $shopcar) {
+            if($shopcar->product->checkquantity($shopcar->quantity)){
+                return $shopcar->product->name.'商品數量不足';
+            }            
+        }
+
+        foreach ($shopcars as  $shopcar) {
+            $shopcar->checkout();
+            
+        }
+        return $shopcars;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +37,7 @@ class ShopcarController extends Controller
      */
     public function index()
     {
-        return shopcar::find(1)->checkout();
+       
         $user = auth()->user();
         $shopcar = shopcar::where('user_id','=',$user->id)->get();
 
@@ -39,9 +62,15 @@ class ShopcarController extends Controller
      */
     public function store(Request $request)
     {
+        $product = product::find($request->product_id);
+        if($product->checkquantity($request->quantity)){
+            return response('商品數量不足',400);
+        }
+        
         $user = auth()->user();
         $shopcar = shopcar::create(['user_id'=>$user->id,
-                                    'product_id'=>$request->product_id]);
+                                    'product_id'=>$request->product_id,
+                                    'quantity'=>$request->quantity]);
 
         return $shopcar;
     }

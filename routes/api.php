@@ -24,6 +24,7 @@ Route::get('product','ProductController@index');
 route::group(['middleware'=>'auth:api'],function(){
     Route::get('Logout', 'AuthController@Logout');
     Route::resource('shopcar', 'ShopcarController');
+    Route::post('shopcar/checkout', 'ShopcarController@checkout');
     Route::resource('product', 'ProductController',['except' => ['index']]);
     
 });
