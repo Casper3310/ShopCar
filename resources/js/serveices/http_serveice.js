@@ -20,7 +20,7 @@ export function httpFile() {
 }
 
 export function httpToken() {
-    const Token = JSON.parse(localStorage.getItem("Token"));
+    const Token = JSON.parse(localStorage.getItem("user")).token;
     return axios.create({
         baseURL: store.state.apiURL,
         headers: {

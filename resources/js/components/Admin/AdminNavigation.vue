@@ -1,7 +1,7 @@
 <template>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <router-link class="navbar-brand ps-3" to="/">home</router-link>
+        <router-link class="navbar-brand ps-3" to="/">回首頁</router-link>
         <!-- Sidebar Toggle-->
         <button
             class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"

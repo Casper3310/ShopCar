@@ -5,6 +5,16 @@
 </template>
 <script>
 export default {
-    methods: {}
+    mounted() {
+        this.CheckLogin();
+    },
+    methods: {
+        CheckLogin() {
+            if (localStorage.getItem("user")) {
+                let userdata = JSON.parse(localStorage.getItem("user"));
+                this.$store.commit("SetUser", userdata);
+            }
+        }
+    }
 };
 </script>

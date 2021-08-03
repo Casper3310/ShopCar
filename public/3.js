@@ -150,25 +150,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 res = _context.sent;
-                console.log(res);
-                localStorage.setItem("Token", JSON.stringify(res.data.token));
-                _context.next = 11;
+                this.$store.commit("Login", res.data);
+                _context.next = 10;
                 break;
 
-              case 8:
-                _context.prev = 8;
+              case 7:
+                _context.prev = 7;
                 _context.t0 = _context["catch"](0);
                 console.log(_context.t0);
 
-              case 11:
+              case 10:
                 this.HideLoginModal();
 
-              case 12:
+              case 11:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 8]]);
+        }, _callee, this, [[0, 7]]);
       }));
 
       function SubmitLogin() {
@@ -564,7 +563,7 @@ function httpFile() {
   });
 }
 function httpToken() {
-  var Token = JSON.parse(localStorage.getItem("Token"));
+  var Token = JSON.parse(localStorage.getItem("user")).token;
   return axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
     baseURL: _store__WEBPACK_IMPORTED_MODULE_0__["default"].state.apiURL,
     headers: {

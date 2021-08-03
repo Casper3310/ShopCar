@@ -16,31 +16,36 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item">
-                        <router-link class="nav-link active" to="/"
-                            >home</router-link
+                    <li class="nav-item" v-if="this.$store.state.isLog">
+                        <a type="button" class="nav-link"
+                            >使用者:{{ this.$store.state.user.user.name }}</a
                         >
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" v-if="this.$store.state.isLog">
+                        <a type="button" class="nav-link"
+                            >消費等級:{{ this.$store.state.user.user.level }}</a
+                        >
+                    </li>
+                    <li class="nav-item" v-if="this.$store.state.isLog">
                         <router-link class="nav-link" to="/admin"
                             >後台</router-link
                         >
                     </li>
-                    <li class="nav-item">
-                        <Login></Login>
-                    </li>
-                    <li class="nav-item">
-                        <Register></Register>
-                    </li>
-                    <li class="nav-item">
+                    <li class="nav-item" v-if="this.$store.state.isLog">
                         <a type="button" class="nav-link" @click="Logout"
                             >登出</a
                         >
                     </li>
+                    <li class="nav-item" v-if="!this.$store.state.isLog">
+                        <Login></Login>
+                    </li>
+                    <li class="nav-item" v-if="!this.$store.state.isLog">
+                        <Register></Register>
+                    </li>
                 </ul>
                 <button class="btn btn-outline-dark" type="submit">
                     <i class="bi-cart-fill me-1"></i>
-                    Cart
+                    購物車
                     <span class="badge bg-dark text-white ms-1 rounded-pill"
                         >0</span
                     >
@@ -59,17 +64,23 @@ export default {
         Login,
         Register
     },
+    data() {
+        return {
+            isLogin: this.$store.state.isLog
+        };
+    },
+    computed: {},
     mounted() {},
     methods: {
         Logout: async function() {
             try {
                 const res = await Login_Servercie.Logout();
-                console.log(res);
-                localStorage.removeItem("Token");
+                this.$store.commit("LogOut");
             } catch (error) {
                 console.log(error);
             }
         }
-    }
+    },
+    watch: {}
 };
 </script>

@@ -216,7 +216,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {}
+  mounted: function mounted() {
+    this.CheckLogin();
+  },
+  methods: {
+    CheckLogin: function CheckLogin() {
+      if (localStorage.getItem("user")) {
+        var userdata = JSON.parse(localStorage.getItem("user"));
+        this.$store.commit("SetUser", userdata);
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -36545,7 +36555,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   state: {
     apiURL: 'http://localhost/api/',
     serverPath: 'http://localhost/',
-    token: ""
+    user: {},
+    isLog: false
   },
 
   /*  
@@ -36556,8 +36567,23 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     role: "",
   },*/
   mutations: {
-    SetToken: function SetToken(state, playload) {
-      state.token = playload;
+    Login: function Login(state, userdata) {
+      localStorage.setItem("user", JSON.stringify(userdata));
+      state.user = userdata;
+      state.isLog = true;
+    },
+    LogOut: function LogOut(state, data) {
+      localStorage.removeItem("user");
+      state.isLog = false;
+    },
+    SetUser: function SetUser(state, data) {
+      if (!localStorage.getItem("user")) {
+        return;
+      }
+
+      var userdata = JSON.parse(localStorage.getItem("user"));
+      state.user = userdata;
+      state.isLog = true;
     }
   },
   actions: {

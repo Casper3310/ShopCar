@@ -78,7 +78,7 @@ var render = function() {
       _c(
         "router-link",
         { staticClass: "navbar-brand ps-3", attrs: { to: "/" } },
-        [_vm._v("home")]
+        [_vm._v("回首頁")]
       ),
       _vm._v(" "),
       _vm._m(0),

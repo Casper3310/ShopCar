@@ -8,7 +8,8 @@ export default new Vuex.Store({
     state: {
         apiURL: 'http://localhost/api/',
         serverPath: 'http://localhost/',
-        token: ""
+        user: {},
+        isLog: false
     },
     /*  
   state: {
@@ -19,11 +20,22 @@ export default new Vuex.Store({
   },*/
 
     mutations: {
-        SetToken(state, playload) {
-
-            state.token = playload;
-
-
+        Login(state, userdata) {
+            localStorage.setItem("user", JSON.stringify(userdata));
+            state.user = userdata
+            state.isLog = true
+        },
+        LogOut(state, data) {
+            localStorage.removeItem("user");
+            state.isLog = false
+        },
+        SetUser(state, data) {
+            if (!localStorage.getItem("user")) {
+                return
+            }
+            let userdata = JSON.parse(localStorage.getItem("user"))
+            state.user = userdata;
+            state.isLog = true
         }
     },
     actions: {

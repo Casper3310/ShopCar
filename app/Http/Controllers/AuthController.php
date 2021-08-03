@@ -34,7 +34,7 @@ class AuthController extends Controller
         $user =  $request->user();
         $tokenResult = $user->createToken('Token');
         $tokenResult->token->save();
-        return response(["token" => $tokenResult->accessToken],200);
+        return response(["token" => $tokenResult->accessToken,"user"=>$user],200);
     }
 
     public function Logout(Request $request){

@@ -122,8 +122,7 @@ export default {
         SubmitLogin: async function() {
             try {
                 const res = await Login_Servercie.Login(this.user);
-                console.log(res);
-                localStorage.setItem("Token", JSON.stringify(res.data.token));
+                this.$store.commit("Login", res.data);
             } catch (error) {
                 console.log(error);
             }

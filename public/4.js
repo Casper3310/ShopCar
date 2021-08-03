@@ -297,6 +297,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -305,6 +310,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     Login: _Login_Login_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     Register: _Login_Register_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
+  data: function data() {
+    return {
+      isLogin: this.$store.state.isLog
+    };
+  },
+  computed: {},
   mounted: function mounted() {},
   methods: {
     Logout: function () {
@@ -320,22 +331,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 res = _context.sent;
-                console.log(res);
-                localStorage.removeItem("Token");
-                _context.next = 11;
+                this.$store.commit("LogOut");
+                _context.next = 10;
                 break;
 
-              case 8:
-                _context.prev = 8;
+              case 7:
+                _context.prev = 7;
                 _context.t0 = _context["catch"](0);
                 console.log(_context.t0);
 
-              case 11:
+              case 10:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 8]]);
+        }, _callee, this, [[0, 7]]);
       }));
 
       function Logout() {
@@ -344,7 +354,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return Logout;
     }()
-  }
+  },
+  watch: {}
 });
 
 /***/ }),
@@ -981,47 +992,81 @@ var render = function() {
                 "ul",
                 { staticClass: "navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4" },
                 [
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        { staticClass: "nav-link active", attrs: { to: "/" } },
-                        [_vm._v("home")]
+                  this.$store.state.isLog
+                    ? _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { type: "button" }
+                          },
+                          [
+                            _vm._v(
+                              "使用者:" +
+                                _vm._s(this.$store.state.user.user.name)
+                            )
+                          ]
+                        )
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  this.$store.state.isLog
+                    ? _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { type: "button" }
+                          },
+                          [
+                            _vm._v(
+                              "消費等級:" +
+                                _vm._s(this.$store.state.user.user.level)
+                            )
+                          ]
+                        )
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  this.$store.state.isLog
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: "/admin" }
+                            },
+                            [_vm._v("後台")]
+                          )
+                        ],
+                        1
                       )
-                    ],
-                    1
-                  ),
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        { staticClass: "nav-link", attrs: { to: "/admin" } },
-                        [_vm._v("後台")]
-                      )
-                    ],
-                    1
-                  ),
+                  this.$store.state.isLog
+                    ? _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { type: "button" },
+                            on: { click: _vm.Logout }
+                          },
+                          [_vm._v("登出")]
+                        )
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [_c("Login")], 1),
+                  !this.$store.state.isLog
+                    ? _c("li", { staticClass: "nav-item" }, [_c("Login")], 1)
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [_c("Register")], 1),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { type: "button" },
-                        on: { click: _vm.Logout }
-                      },
-                      [_vm._v("登出")]
-                    )
-                  ])
+                  !this.$store.state.isLog
+                    ? _c("li", { staticClass: "nav-item" }, [_c("Register")], 1)
+                    : _vm._e()
                 ]
               ),
               _vm._v(" "),
@@ -1064,7 +1109,7 @@ var staticRenderFns = [
       { staticClass: "btn btn-outline-dark", attrs: { type: "submit" } },
       [
         _c("i", { staticClass: "bi-cart-fill me-1" }),
-        _vm._v("\n                Cart\n                "),
+        _vm._v("\n                購物車\n                "),
         _c(
           "span",
           { staticClass: "badge bg-dark text-white ms-1 rounded-pill" },
