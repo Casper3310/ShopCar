@@ -1,42 +1,60 @@
 <template>
-    <div id="layoutAuthentication">
-        <div id="layoutAuthentication_content">
-            <main>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-5">
-                            <div
-                                class="card shadow-lg border-0 rounded-lg mt-5"
-                            >
-                                <div class="card-header">
-                                    <h3
-                                        class="text-center font-weight-light my-4"
-                                    >
-                                        Login
-                                    </h3>
-                                </div>
+    <div>
+        <!-- Button trigger modal -->
+        <a type="button" class="nav-link" @click="ShowLoginModal">
+            登入
+        </a>
+
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="LoginModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            登入
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <main>
+                            <div class="row justify-content-center ">
                                 <div class="card-body">
-                                    <form>
+                                    <form @submit.prevent="SubmitLogin">
                                         <div class="form-floating mb-3">
                                             <input
                                                 class="form-control"
-                                                id="inputEmail"
+                                                id="LoginEmail"
                                                 type="email"
                                                 placeholder="name@example.com"
+                                                v-model="user.email"
                                             />
-                                            <label for="inputEmail"
-                                                >Email address</label
+                                            <label for="LoginEmail"
+                                                >登入Email</label
                                             >
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input
                                                 class="form-control"
-                                                id="inputPassword"
+                                                id="LoginPassword"
                                                 type="password"
                                                 placeholder="Password"
+                                                v-model="user.password"
                                             />
-                                            <label for="inputPassword"
-                                                >Password</label
+                                            <label for="LoginPassword"
+                                                >密碼</label
                                             >
                                         </div>
                                         <div class="form-check mb-3">
@@ -49,55 +67,81 @@
                                             <label
                                                 class="form-check-label"
                                                 for="inputRememberPassword"
-                                                >Remember Password</label
+                                                >記住我</label
                                             >
                                         </div>
                                         <div
                                             class="d-flex align-items-center justify-content-between mt-4 mb-0"
                                         >
-                                            <a
-                                                class="small"
-                                                href="password.html"
-                                                >Forgot Password?</a
-                                            >
-                                            <a
+                                            <button
                                                 class="btn btn-primary"
-                                                href="index.html"
-                                                >Login</a
+                                                href="password.html"
                                             >
+                                                忘記密碼
+                                            </button>
+                                            <div>
+                                                <button
+                                                    class="btn btn-primary"
+                                                    data-dismiss="modal"
+                                                    @click="ClearData"
+                                                >
+                                                    取消
+                                                </button>
+                                                <button
+                                                    class="btn btn-primary"
+                                                    type="submit"
+                                                >
+                                                    登入
+                                                </button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="card-footer text-center py-3">
-                                    <div class="small">
-                                        <a href="register.html"
-                                            >Need an account? Sign up!</a
-                                        >
-                                    </div>
-                                </div>
                             </div>
-                        </div>
+                        </main>
                     </div>
                 </div>
-            </main>
-        </div>
-        <div id="layoutAuthentication_footer">
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div
-                        class="d-flex align-items-center justify-content-between small"
-                    >
-                        <div class="text-muted">
-                            Copyright &copy; Your Website 2021
-                        </div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            </div>
         </div>
     </div>
 </template>
+<script>
+import * as Login_Servercie from "../../serveices/Login_serveice";
+
+export default {
+    data() {
+        return {
+            user: {
+                email: "",
+                password: ""
+            },
+            errors: ""
+        };
+    },
+    methods: {
+        SubmitLogin: async function() {
+            try {
+                const res = await Login_Servercie.Login(this.user);
+                console.log(res);
+                localStorage.setItem("Token", JSON.stringify(res.data.token));
+            } catch (error) {
+                console.log(error);
+            }
+
+            this.HideLoginModal();
+        },
+        ClearData() {
+            this.user.email = "";
+            this.user.password = "";
+            this.errors = "";
+        },
+        ShowLoginModal() {
+            $("#LoginModal").modal("show");
+            this.ClearData();
+        },
+        HideLoginModal() {
+            $("#LoginModal").modal("hide");
+        }
+    }
+};
+</script>

@@ -215,7 +215,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {}
+});
 
 /***/ }),
 
@@ -36478,13 +36480,13 @@ var routes = [
   path: '/',
   name: 'home',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./components/ShopHome/ShopHome.vue */ "./resources/js/components/ShopHome/ShopHome.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./components/ShopHome/ShopHome.vue */ "./resources/js/components/ShopHome/ShopHome.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/Login/Login.vue */ "./resources/js/components/Login/Login.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./components/Login/Login.vue */ "./resources/js/components/Login/Login.vue"));
   }
 }, {
   path: '/admin',
@@ -36543,8 +36545,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   state: {
     apiURL: 'http://localhost/api/',
     serverPath: 'http://localhost/',
-    isLogin: false,
-    role: ""
+    token: ""
   },
 
   /*  
@@ -36555,20 +36556,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     role: "",
   },*/
   mutations: {
-    SetLogin: function SetLogin(state, playload) {
-      state.isLogin = false;
-      state.role = "vistor";
-
-      if (localStorage.getItem('TRTC')) {
-        var userdata = JSON.parse(localStorage.getItem("TRTC"));
-        state.isLogin = true;
-        state.role = userdata.token_scopes;
-      }
+    SetToken: function SetToken(state, playload) {
+      state.token = playload;
     }
   },
   actions: {
-    SetLogin: function SetLogin(context, playload) {
-      context.commit('SetLogin', playload);
+    SetToken: function SetToken(context, playload) {
+      context.commit('SetToken', playload);
     }
   }
 }));

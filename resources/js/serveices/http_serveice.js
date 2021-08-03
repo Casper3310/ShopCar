@@ -20,11 +20,11 @@ export function httpFile() {
 }
 
 export function httpToken() {
-    const Token = JSON.parse(localStorage.getItem("TRTC"));
+    const Token = JSON.parse(localStorage.getItem("Token"));
     return axios.create({
         baseURL: store.state.apiURL,
         headers: {
-            Authorization: "Bearer " + Token.accessToken
+            Authorization: "Bearer " + Token
         }
     })
 }

@@ -8,8 +8,7 @@ export default new Vuex.Store({
     state: {
         apiURL: 'http://localhost/api/',
         serverPath: 'http://localhost/',
-        isLogin: false,
-        role: ""
+        token: ""
     },
     /*  
   state: {
@@ -20,21 +19,16 @@ export default new Vuex.Store({
   },*/
 
     mutations: {
-        SetLogin(state, playload) {
+        SetToken(state, playload) {
 
-            state.isLogin = false
-            state.role = "vistor";
-            if (localStorage.getItem('TRTC')) {
-                const userdata = JSON.parse(localStorage.getItem("TRTC"))
-                state.isLogin = true;
-                state.role = userdata.token_scopes;
-            }
+            state.token = playload;
+
 
         }
     },
     actions: {
-        SetLogin(context, playload) {
-            context.commit('SetLogin', playload);
+        SetToken(context, playload) {
+            context.commit('SetToken', playload);
         }
     }
 })

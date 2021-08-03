@@ -26,6 +26,17 @@
                             >後台</router-link
                         >
                     </li>
+                    <li class="nav-item">
+                        <Login></Login>
+                    </li>
+                    <li class="nav-item">
+                        <Register></Register>
+                    </li>
+                    <li class="nav-item">
+                        <a type="button" class="nav-link" @click="Logout"
+                            >登出</a
+                        >
+                    </li>
                 </ul>
                 <button class="btn btn-outline-dark" type="submit">
                     <i class="bi-cart-fill me-1"></i>
@@ -38,3 +49,27 @@
         </div>
     </nav>
 </template>
+<script>
+import Login from "../Login/Login.vue";
+import Register from "../Login/Register.vue";
+import * as Login_Servercie from "../../serveices/Login_serveice";
+
+export default {
+    components: {
+        Login,
+        Register
+    },
+    mounted() {},
+    methods: {
+        Logout: async function() {
+            try {
+                const res = await Login_Servercie.Logout();
+                console.log(res);
+                localStorage.removeItem("Token");
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }
+};
+</script>

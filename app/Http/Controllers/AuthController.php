@@ -11,6 +11,7 @@ class AuthController extends Controller
 {
     //
     public function register(CreateUser $request){
+
         $validata = $request->validated();
 
         $user = New User([
@@ -33,7 +34,7 @@ class AuthController extends Controller
         $user =  $request->user();
         $tokenResult = $user->createToken('Token');
         $tokenResult->token->save();
-        return response(["toke" => $tokenResult->accessToken],200);
+        return response(["token" => $tokenResult->accessToken],200);
     }
 
     public function Logout(Request $request){
