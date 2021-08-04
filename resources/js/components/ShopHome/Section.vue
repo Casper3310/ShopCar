@@ -39,9 +39,15 @@
                             >
                                 -
                             </button>
-                            <div class="form-control text-center">
-                                {{ item.BuyNumber }}
-                            </div>
+
+                            <input
+                                class="form-control text-center"
+                                type="number"
+                                :max="item.quantity"
+                                min="0"
+                                v-model.number="item.BuyNumber"
+                                @change="CheackBuyNumber(index, item.quantity)"
+                            />
                             <button
                                 @click="CountBuyNumber(index, 1, item.quantity)"
                                 class="btn btn-outline-secondary"
@@ -79,14 +85,20 @@ export default {
         this.LoadProduct();
     },
     methods: {
+        CheackBuyNumber(index, Max) {
+            if (this.ProductList[index].BuyNumber > Max) {
+                this.ProductList[index].BuyNumber = Max;
+            } else if (
+                this.ProductList[index].BuyNumber < 0 ||
+                this.ProductList[index].BuyNumber == ""
+            ) {
+                this.ProductList[index].BuyNumber = 0;
+            }
+        },
         CountBuyNumber(index, number, Max) {
             this.ProductList[index].BuyNumber += number;
 
-            if (this.ProductList[index].BuyNumber > Max) {
-                this.ProductList[index].BuyNumber = Max;
-            } else if (this.ProductList[index].BuyNumber < 0) {
-                this.ProductList[index].BuyNumber = 0;
-            }
+            this.CheackBuyNumber(index, Max);
         },
 
         LoadProduct: async function() {

@@ -1,13 +1,362 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login/Register.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Login/Register.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _serveices_Login_serveice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../serveices/Login_serveice */ "./resources/js/serveices/Login_serveice.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      user: {
+        name: "",
+        email: "",
+        password: "",
+        password_confirmation: ""
+      },
+      errors: ""
+    };
+  },
+  methods: {
+    SubmitRegister: function () {
+      var _SubmitRegister = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!(this.user.password != this.user.password_confirmation)) {
+                  _context.next = 5;
+                  break;
+                }
+
+                this.errors = "密碼不相同";
+                this.user.password = "";
+                this.user.password_confirmation = "";
+                return _context.abrupt("return");
+
+              case 5:
+                _context.prev = 5;
+                _context.next = 8;
+                return _serveices_Login_serveice__WEBPACK_IMPORTED_MODULE_1__["Register"](this.user);
+
+              case 8:
+                res = _context.sent;
+                _context.next = 14;
+                break;
+
+              case 11:
+                _context.prev = 11;
+                _context.t0 = _context["catch"](5);
+                console.log(_context.t0);
+
+              case 14:
+                this.HideRegisterModal();
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[5, 11]]);
+      }));
+
+      function SubmitRegister() {
+        return _SubmitRegister.apply(this, arguments);
+      }
+
+      return SubmitRegister;
+    }(),
+    ClearData: function ClearData() {
+      this.user.name = "";
+      this.user.email = "";
+      this.user.password = "";
+      this.user.password_confirmation = "";
+      this.errors = "";
+    },
+    ShowRegisterModal: function ShowRegisterModal() {
+      $("#RegisterModal").modal("show");
+      this.ClearData();
+    },
+    HideRegisterModal: function HideRegisterModal() {
+      $("#RegisterModal").modal("hide");
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShopHome/Navigation.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ShopHome/Navigation.vue?vue&type=script&lang=js& ***!
   \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\XAMMP\\htdocs\\shopcar\\resources\\js\\components\\ShopHome\\Navigation.vue: Unexpected token, expected \",\" (59:43)\n\n\u001b[0m \u001b[90m 57 |\u001b[39m     data(){\u001b[0m\n\u001b[0m \u001b[90m 58 |\u001b[39m         \u001b[36mreturn\u001b[39m{\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 59 |\u001b[39m             isLogin\u001b[33m:\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39m$store\u001b[33m.\u001b[39mstate\u001b[33m.\u001b[39misLog\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 60 |\u001b[39m         }\u001b[0m\n\u001b[0m \u001b[90m 61 |\u001b[39m     }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 62 |\u001b[39m     computed\u001b[33m:\u001b[39m {}\u001b[33m,\u001b[39m\u001b[0m\n    at Parser._raise (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:788:17)\n    at Parser.raiseWithData (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:781:17)\n    at Parser.raise (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:742:17)\n    at Parser.unexpected (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:9929:16)\n    at Parser.expect (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:9903:28)\n    at Parser.parseObjectLike (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11733:14)\n    at Parser.parseExprAtom (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11265:23)\n    at Parser.parseExprSubscripts (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10914:23)\n    at Parser.parseUpdate (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10894:21)\n    at Parser.parseMaybeUnary (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10872:23)\n    at Parser.parseExprOps (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10733:23)\n    at Parser.parseMaybeConditional (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10707:23)\n    at Parser.parseMaybeAssign (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10670:21)\n    at Parser.parseExpressionBase (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10610:23)\n    at D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10604:39\n    at Parser.allowInAnd (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12372:16)\n    at Parser.parseExpression (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10604:17)\n    at Parser.parseReturnStatement (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12958:28)\n    at Parser.parseStatementContent (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12628:21)\n    at Parser.parseStatement (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12580:17)\n    at Parser.parseBlockOrModuleBlockBody (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:13169:25)\n    at Parser.parseBlockBody (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:13160:10)\n    at Parser.parseBlock (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:13144:10)\n    at Parser.parseFunctionBody (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12033:24)\n    at Parser.parseFunctionBodyAndFinish (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12017:10)\n    at Parser.parseMethod (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11967:10)\n    at Parser.parseObjectMethod (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11895:19)\n    at Parser.parseObjPropValue (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11928:23)\n    at Parser.parsePropertyDefinition (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11852:10)\n    at Parser.parseObjectLike (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11741:25)\n    at Parser.parseExprAtom (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11265:23)\n    at Parser.parseExprSubscripts (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10914:23)\n    at Parser.parseUpdate (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10894:21)\n    at Parser.parseMaybeUnary (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10872:23)\n    at Parser.parseExprOps (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10733:23)\n    at Parser.parseMaybeConditional (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10707:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Login_Login_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Login/Login.vue */ "./resources/js/components/Login/Login.vue");
+/* harmony import */ var _Login_Register_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Login/Register.vue */ "./resources/js/components/Login/Register.vue");
+/* harmony import */ var _serveices_Login_serveice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../serveices/Login_serveice */ "./resources/js/serveices/Login_serveice.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Login: _Login_Login_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Register: _Login_Register_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {
+      isLogin: this.$store.state.isLog
+    };
+  },
+  computed: {},
+  mounted: function mounted() {},
+  methods: {
+    Logout: function () {
+      var _Logout = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return _serveices_Login_serveice__WEBPACK_IMPORTED_MODULE_3__["Logout"]();
+
+              case 3:
+                res = _context.sent;
+                this.$store.commit("LogOut");
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 7]]);
+      }));
+
+      function Logout() {
+        return _Logout.apply(this, arguments);
+      }
+
+      return Logout;
+    }()
+  },
+  watch: {}
+});
 
 /***/ }),
 
@@ -99,6 +448,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -110,14 +465,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.LoadProduct();
   },
   methods: {
-    CountBuyNumber: function CountBuyNumber(index, number, Max) {
-      this.ProductList[index].BuyNumber += number;
-
+    CheackBuyNumber: function CheackBuyNumber(index, Max) {
       if (this.ProductList[index].BuyNumber > Max) {
         this.ProductList[index].BuyNumber = Max;
-      } else if (this.ProductList[index].BuyNumber < 0) {
+      } else if (this.ProductList[index].BuyNumber < 0 || this.ProductList[index].BuyNumber == "") {
         this.ProductList[index].BuyNumber = 0;
       }
+    },
+    CountBuyNumber: function CountBuyNumber(index, number, Max) {
+      this.ProductList[index].BuyNumber += number;
+      this.CheackBuyNumber(index, Max);
     },
     LoadProduct: function () {
       var _LoadProduct = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -204,6 +561,320 @@ __webpack_require__.r(__webpack_exports__);
   methods: {},
   destroy: function destroy() {}
 });
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login/Register.vue?vue&type=template&id=25de3954&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Login/Register.vue?vue&type=template&id=25de3954& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "a",
+      {
+        staticClass: "nav-link",
+        attrs: { type: "button" },
+        on: { click: _vm.ShowRegisterModal }
+      },
+      [_vm._v("\n        註冊\n    ")]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "RegisterModal",
+          tabindex: "-1",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("main", [
+                _c("div", { staticClass: "row justify-content-center " }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("div", [_vm._v(_vm._s(_vm.errors))]),
+                    _vm._v(" "),
+                    _c(
+                      "form",
+                      {
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return _vm.SubmitRegister.apply(null, arguments)
+                          }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "form-floating mb-3" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model.trim",
+                                value: _vm.user.email,
+                                expression: "user.email",
+                                modifiers: { trim: true }
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "RegisterEmail",
+                              type: "email",
+                              placeholder: "name@example.com",
+                              required: ""
+                            },
+                            domProps: { value: _vm.user.email },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.user,
+                                  "email",
+                                  $event.target.value.trim()
+                                )
+                              },
+                              blur: function($event) {
+                                return _vm.$forceUpdate()
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "RegisterEmail" } }, [
+                            _vm._v("輸入Email")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-floating mb-3" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model.trim",
+                                value: _vm.user.name,
+                                expression: "user.name",
+                                modifiers: { trim: true }
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "RegisterName",
+                              type: "text",
+                              maxlength: "10",
+                              minlength: "1",
+                              placeholder: "name@example.com",
+                              required: ""
+                            },
+                            domProps: { value: _vm.user.name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.user,
+                                  "name",
+                                  $event.target.value.trim()
+                                )
+                              },
+                              blur: function($event) {
+                                return _vm.$forceUpdate()
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "RegisterName" } }, [
+                            _vm._v("輸入名稱")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-floating mb-3" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model.trim",
+                                value: _vm.user.password,
+                                expression: "user.password",
+                                modifiers: { trim: true }
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "RegisterPassword",
+                              type: "password",
+                              placeholder: "輸入密碼",
+                              maxlength: "12",
+                              minlength: "3",
+                              required: ""
+                            },
+                            domProps: { value: _vm.user.password },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.user,
+                                  "password",
+                                  $event.target.value.trim()
+                                )
+                              },
+                              blur: function($event) {
+                                return _vm.$forceUpdate()
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "RegisterPassword" } }, [
+                            _vm._v("輸入密碼")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-floating mb-3" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model.trim",
+                                value: _vm.user.password_confirmation,
+                                expression:
+                                  "\n                                                user.password_confirmation\n                                            ",
+                                modifiers: { trim: true }
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "password_confirmation",
+                              type: "password",
+                              placeholder: "再次輸入密碼",
+                              maxlength: "12",
+                              minlength: "3",
+                              required: ""
+                            },
+                            domProps: { value: _vm.user.password_confirmation },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.user,
+                                  "password_confirmation",
+                                  $event.target.value.trim()
+                                )
+                              },
+                              blur: function($event) {
+                                return _vm.$forceUpdate()
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { attrs: { for: "password_confirmation" } },
+                            [_vm._v("確認密碼")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "d-flex align-items-center justify-content-end mt-4 mb-0"
+                          },
+                          [
+                            _c("div", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-secondary",
+                                  attrs: { "data-dismiss": "modal" },
+                                  on: { click: _vm.ClearData }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                                取消\n                                            "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  attrs: { type: "submit" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                                註冊\n                                            "
+                                  )
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("\n                        註冊帳號\n                    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -329,7 +1000,43 @@ var render = function() {
                 "ul",
                 { staticClass: "navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4" },
                 [
-                  _vm.isLogin
+                  this.$store.state.isLog
+                    ? _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { type: "button" }
+                          },
+                          [
+                            _vm._v(
+                              "使用者:" +
+                                _vm._s(this.$store.state.user.user.name)
+                            )
+                          ]
+                        )
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  this.$store.state.isLog
+                    ? _c("li", { staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { type: "button" }
+                          },
+                          [
+                            _vm._v(
+                              "消費等級:" +
+                                _vm._s(this.$store.state.user.user.level)
+                            )
+                          ]
+                        )
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  this.$store.state.isLog
                     ? _c(
                         "li",
                         { staticClass: "nav-item" },
@@ -347,7 +1054,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.isLogin
+                  this.$store.state.isLog
                     ? _c("li", { staticClass: "nav-item" }, [
                         _c(
                           "a",
@@ -361,11 +1068,11 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  !_vm.isLogin
+                  !this.$store.state.isLog
                     ? _c("li", { staticClass: "nav-item" }, [_c("Login")], 1)
                     : _vm._e(),
                   _vm._v(" "),
-                  !_vm.isLogin
+                  !this.$store.state.isLog
                     ? _c("li", { staticClass: "nav-item" }, [_c("Register")], 1)
                     : _vm._e()
                 ]
@@ -501,13 +1208,34 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-control text-center" }, [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(item.BuyNumber) +
-                      "\n                        "
-                  )
-                ]),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model.number",
+                      value: item.BuyNumber,
+                      expression: "item.BuyNumber",
+                      modifiers: { number: true }
+                    }
+                  ],
+                  staticClass: "form-control text-center",
+                  attrs: { type: "number", max: item.quantity, min: "0" },
+                  domProps: { value: item.BuyNumber },
+                  on: {
+                    change: function($event) {
+                      return _vm.CheackBuyNumber(index, item.quantity)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(item, "BuyNumber", _vm._n($event.target.value))
+                    },
+                    blur: function($event) {
+                      return _vm.$forceUpdate()
+                    }
+                  }
+                }),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -589,6 +1317,75 @@ var render = function() {
 }
 var staticRenderFns = []
 render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Login/Register.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/Login/Register.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Register_vue_vue_type_template_id_25de3954___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Register.vue?vue&type=template&id=25de3954& */ "./resources/js/components/Login/Register.vue?vue&type=template&id=25de3954&");
+/* harmony import */ var _Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Register.vue?vue&type=script&lang=js& */ "./resources/js/components/Login/Register.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Register_vue_vue_type_template_id_25de3954___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Register_vue_vue_type_template_id_25de3954___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Login/Register.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Login/Register.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/Login/Register.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Register.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login/Register.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Login/Register.vue?vue&type=template&id=25de3954&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/Login/Register.vue?vue&type=template&id=25de3954& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_25de3954___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Register.vue?vue&type=template&id=25de3954& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login/Register.vue?vue&type=template&id=25de3954&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_25de3954___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_25de3954___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -904,68 +1701,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopHome_vue_vue_type_template_id_25d7c694___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/serveices/http_serveice.js":
-/*!*************************************************!*\
-  !*** ./resources/js/serveices/http_serveice.js ***!
-  \*************************************************/
-/*! exports provided: http, httpFile, httpToken */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "http", function() { return http; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpFile", function() { return httpFile; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpToken", function() { return httpToken; });
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store */ "./resources/js/store.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-
-
-function http() {
-  return axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
-    baseURL: _store__WEBPACK_IMPORTED_MODULE_0__["default"].state.apiURL
-  });
-}
-function httpFile() {
-  var Token = JSON.parse(localStorage.getItem("TRTC"));
-  return axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
-    baseURL: _store__WEBPACK_IMPORTED_MODULE_0__["default"].state.apiURL,
-    headers: {
-      'Content-Type': 'multipart/form-data',
-      Authorization: "Bearer " + Token.accessToken
-    }
-  });
-}
-function httpToken() {
-  var Token = JSON.parse(localStorage.getItem("Token"));
-  return axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
-    baseURL: _store__WEBPACK_IMPORTED_MODULE_0__["default"].state.apiURL,
-    headers: {
-      Authorization: "Bearer " + Token
-    }
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/serveices/product_serveice.js":
-/*!****************************************************!*\
-  !*** ./resources/js/serveices/product_serveice.js ***!
-  \****************************************************/
-/*! exports provided: LoadProduct */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadProduct", function() { return LoadProduct; });
-/* harmony import */ var _http_serveice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_serveice */ "./resources/js/serveices/http_serveice.js");
-
-function LoadProduct() {
-  return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["http"])().get('product');
-}
 
 /***/ })
 

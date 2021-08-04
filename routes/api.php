@@ -28,5 +28,6 @@ route::group(['middleware'=>'auth:api'],function(){
     Route::resource('shopcar', 'ShopcarController');
     Route::post('shopcar/checkout', 'ShopcarController@checkout');
     Route::resource('product', 'ProductController',['except' => ['index']]);
+    Route::get('GetUserProduct', 'ProductController@GetUserProduct');
     
 });

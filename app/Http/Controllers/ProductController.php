@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function GetUserProduct(){
+        $userID = auth()->user()->id;
+        $productdata = product::where('user_id','=',$userID)->get();
+        return $productdata;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -36,6 +42,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' =>'required|string',
+            'price'=>'required|numeric|min:0|max:10000',
+            'quantity' =>'required|numeric|min:0|max:999',
+        ]);
         $user = auth()->user();
         $shopcar = product::create(['user_id'=>$user->id,
                                     'name'=>$request->name,
@@ -43,7 +54,7 @@ class ProductController extends Controller
                                     'quantity'=>$request->quantity,
                                     'picture_path'=>""]);
 
-        return response('新增成功');
+        return response($shopcar);
     }
 
     /**
@@ -77,6 +88,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, product $product)
     {
+        $request->validate([
+            'name' =>'required|string',
+            'price'=>'required|numeric|min:0|max:10000',
+            'quantity' =>'required|numeric|min:0|max:999',
+        ]);
         $user = auth()->user();
         if(($user->id)!==($product->user_id)){
             return response('非用戶產品');
@@ -88,7 +104,7 @@ class ProductController extends Controller
                             'quantity'=>$request->quantity,
                             'picture_path'=>""]);
 
-        return response('更新成功');
+        return response($product);
     }
 
     /**
