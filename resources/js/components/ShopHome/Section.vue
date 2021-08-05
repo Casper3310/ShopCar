@@ -63,7 +63,9 @@
                             class="card-footer p-4 pt-0 border-top-0 bg-transparent"
                         >
                             <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="#"
+                                <a
+                                    class="btn btn-outline-dark mt-auto"
+                                    @click="SetShopCar(index)"
                                     >加入購物車</a
                                 >
                             </div>
@@ -76,6 +78,7 @@
 </template>
 <script>
 import * as product_serveice from "../../serveices/product_serveice";
+import * as shopcar_serveice from "../../serveices/shopcar_serveice";
 
 export default {
     data() {
@@ -85,6 +88,31 @@ export default {
         this.LoadProduct();
     },
     methods: {
+        SetShopCar: async function(index) {
+            if (this.$store.state.isLog) {
+                try {
+                    let product = this.ProductList[index];
+
+                    const res = await shopcar_serveice.StoreShopCar(product);
+                    this.flashMessage.show({
+                        status: "info",
+                        title: "購物車通知",
+                        message:
+                            this.ProductList[index].name + "  已加入購物車",
+                        time: 3000
+                    });
+                } catch (error) {
+                    console.log(error);
+                }
+            } else {
+                this.flashMessage.show({
+                    status: "error",
+                    title: "購物車通知",
+                    message: "請登入會員",
+                    time: 3000
+                });
+            }
+        },
         CheackBuyNumber(index, Max) {
             if (this.ProductList[index].BuyNumber > Max) {
                 this.ProductList[index].BuyNumber = Max;

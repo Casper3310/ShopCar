@@ -43,13 +43,14 @@
                         <Register></Register>
                     </li>
                 </ul>
-                <button class="btn btn-outline-dark" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
+
+                <router-link class="btn btn-outline-dark" to="/shopcar">
+                    <i class="fas fa-cart-arrow-down"></i>
                     購物車
-                    <span class="badge bg-dark text-white ms-1 rounded-pill"
-                        >0</span
-                    >
-                </button>
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">{{
+                        this.$store.state.shopcar.length
+                    }}</span></router-link
+                >
             </div>
         </div>
     </nav>
@@ -79,6 +80,7 @@ export default {
             } catch (error) {
                 console.log(error);
             }
+            this.$store.commit("SetShopCar");
         }
     },
     watch: {}

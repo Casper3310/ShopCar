@@ -139,7 +139,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     SubmitLogin: function () {
       var _SubmitLogin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var res;
+        var _this = this;
+
+        var res, shopcar;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -161,8 +163,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 10:
                 this.HideLoginModal();
+                _context.next = 13;
+                return _serveices_Login_serveice__WEBPACK_IMPORTED_MODULE_1__["LoadShopCar"]();
 
-              case 11:
+              case 13:
+                shopcar = _context.sent.data;
+                shopcar.forEach(function (element) {
+                  _this.$store.commit("SetShopCar", element);
+                });
+
+              case 15:
               case "end":
                 return _context.stop();
             }
@@ -501,32 +511,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_74b91af0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/serveices/Login_serveice.js":
-/*!**************************************************!*\
-  !*** ./resources/js/serveices/Login_serveice.js ***!
-  \**************************************************/
-/*! exports provided: Register, Login, Logout */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Register", function() { return Register; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Login", function() { return Login; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Logout", function() { return Logout; });
-/* harmony import */ var _http_serveice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_serveice */ "./resources/js/serveices/http_serveice.js");
-
-function Register(RegisterData) {
-  return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["http"])().post('register', RegisterData);
-}
-function Login(LoginData) {
-  return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["http"])().post('Login', LoginData);
-}
-function Logout() {
-  return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["httpToken"])().get('Logout');
-}
 
 /***/ })
 

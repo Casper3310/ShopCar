@@ -9,7 +9,8 @@ export default new Vuex.Store({
         apiURL: 'http://localhost/api/',
         serverPath: 'http://localhost/',
         user: {},
-        isLog: false
+        isLog: false,
+        shopcar: []
     },
     /*  
   state: {
@@ -36,6 +37,17 @@ export default new Vuex.Store({
             let userdata = JSON.parse(localStorage.getItem("user"))
             state.user = userdata;
             state.isLog = true
+        },
+        SetShopCar(state, data) {
+            if (state.isLog) {
+                state.shopcar.push(data)
+            } else { state.shopcar = [] }
+        },
+        CancleShopCar(state, index) {
+            state.shopcar.splice(index, 1);
+        },
+        LoadShopCar(state, data) {
+            state.shopcar = data;
         }
     },
     actions: {

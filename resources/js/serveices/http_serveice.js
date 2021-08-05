@@ -24,6 +24,7 @@ export function httpToken() {
     return axios.create({
         baseURL: store.state.apiURL,
         headers: {
+            //'Content-Type': 'application/json',
             Authorization: "Bearer " + Token
         }
     })

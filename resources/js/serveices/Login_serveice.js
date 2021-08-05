@@ -11,3 +11,7 @@ export function Login(LoginData) {
 export function Logout() {
     return httpToken().get('Logout');
 }
+
+export function LoadShopCar() {
+    return httpToken().get('shopcar');
+}

@@ -39,7 +39,9 @@ class ShopcarController extends Controller
     {
        
         $user = auth()->user();
-        $shopcar = shopcar::where('user_id','=',$user->id)->get();
+        $shopcar = shopcar::where('user_id','=',$user->id)
+                            ->where('check_out','=','0')
+                            ->with('product')->get();
 
         return $shopcar;
     }
@@ -62,15 +64,19 @@ class ShopcarController extends Controller
      */
     public function store(Request $request)
     {
-        $product = product::find($request->product_id);
+        $validata = $request->validate([
+            'id' =>'required|numeric',
+            'BuyNumber'=>'required|numeric'
+        ]);
+        $product = product::find($request->id);
         if($product->checkquantity($request->quantity)){
             return response('商品數量不足',400);
         }
-        
         $user = auth()->user();
         $shopcar = shopcar::create(['user_id'=>$user->id,
-                                    'product_id'=>$request->product_id,
-                                    'quantity'=>$request->quantity]);
+                                    'product_id'=>$request->id,
+                                    'quantity'=>$request->BuyNumber])
+                                    ->get();
 
         return $shopcar;
     }
@@ -83,7 +89,7 @@ class ShopcarController extends Controller
      */
     public function show(shopcar $shopcar)
     {
-        //
+
     }
 
     /**
