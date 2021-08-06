@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name',100);
             $table->integer('price');
             $table->integer('quantity');
-            $table->text('picture_path');
+            $table->text('picture_path')->default(null);
             $table->timestamps();
 
             $table->foreign('user_id')

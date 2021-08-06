@@ -9,12 +9,12 @@ export function http() {
 }
 
 export function httpFile() {
-    const Token = JSON.parse(localStorage.getItem("TRTC"));
+    const Token = JSON.parse(localStorage.getItem("user")).token;
     return axios.create({
         baseURL: store.state.apiURL,
         headers: {
             'Content-Type': 'multipart/form-data',
-            Authorization: "Bearer " + Token.accessToken
+            Authorization: "Bearer " + Token
         }
     })
 }

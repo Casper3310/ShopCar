@@ -31,8 +31,11 @@ class shopcar extends Model
         }
 
         $price =  ceil($this->product->price * $this->rate);
+        $seller_id =  $this->product->user_id;
+
         $order = $this->order()->create([
                 'user_id'=>$this->user_id,
+                'seller_id'=>$seller_id,
                 'product_id'=>$this->product_id,
                 'quantity'=>$this->quantity,
                 'price'=>$price * $this->quantity,]);

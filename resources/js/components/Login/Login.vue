@@ -127,10 +127,7 @@ export default {
                 console.log(error);
             }
             this.HideLoginModal();
-            const shopcar = (await Login_Servercie.LoadShopCar()).data;
-            shopcar.forEach(element => {
-                this.$store.commit("SetShopCar", element);
-            });
+            this.$store.dispatch("LoadShopCar");
         },
         ClearData() {
             this.user.email = "";

@@ -29,5 +29,7 @@ route::group(['middleware'=>'auth:api'],function(){
     Route::post('shopcar/checkout', 'ShopcarController@checkout');
     Route::resource('product', 'ProductController',['except' => ['index']]);
     Route::get('GetUserProduct', 'ProductController@GetUserProduct');
+    Route::get('order/LoadCancelOrder', 'OrderController@LoadCancelOrder');
+    Route::resource('order', 'OrderController');
     
 });

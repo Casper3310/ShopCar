@@ -14,6 +14,12 @@
                         </div>
                         產品管理
                     </router-link>
+                    <router-link class="nav-link" :to="{ name: 'MangerOrder' }">
+                        <div class="sb-nav-link-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        訂單管理
+                    </router-link>
                     <router-link class="nav-link" :to="{ name: 'Original' }">
                         <div class="sb-nav-link-icon">
                             <i class="fas fa-tachometer-alt"></i>

@@ -11,11 +11,16 @@
                 >
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img
-                            class="card-img-top"
-                            src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                            alt="..."
-                        />
+                        <div class="img_size">
+                            <img
+                                class="card-img-top"
+                                :src="
+                                    `${$store.state.serverPath}storage/${item.picture_path}`
+                                "
+                                alt="..."
+                            />
+                        </div>
+
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -104,6 +109,7 @@ export default {
                 } catch (error) {
                     console.log(error);
                 }
+                this.$store.dispatch("LoadShopCar");
             } else {
                 this.flashMessage.show({
                     status: "error",
@@ -144,3 +150,13 @@ export default {
     watch: {}
 };
 </script>
+<style>
+.img_size {
+    max-width: 300px;
+    max-height: 200px;
+}
+.img_size img {
+    width: 100%;
+    height: 100%;
+}
+</style>

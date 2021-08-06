@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public function LoadCancelOrder()
+    {
+        $userID = auth()->user()->id;
+        $order = order::where('seller_id','=',$userID)
+                        ->where('Cancel','=',1)
+                        ->with('product')->with('user')->get();
+        return $order ;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $userID = auth()->user()->id;
+        $order = order::where('seller_id','=',$userID)
+                        ->where('Cancel','=',0)
+                        ->with('product')->with('user')->get();
+        return $order ;
     }
 
     /**
@@ -80,6 +92,14 @@ class OrderController extends Controller
      */
     public function destroy(order $order)
     {
-        //
+        $userID = auth()->user()->id;
+        if($userID === $order->seller_id){
+            $order->update(['Cancel'=>1]);
+            return $order;
+        }
+        else{
+            return("非用戶商品");
+        }
+        
     }
 }

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MangerProductTable from './components/Admin/MangerProductTable.vue'
+import MangerOrderTable from './components/Admin/MangerOrderTable.vue'
+
 import layoutSidenavContentOriginal from './components/Admin/layoutSidenavContentOriginal.vue'
 
 Vue.use(VueRouter)
@@ -33,6 +35,13 @@ const routes = [
             name: "MangerProduct",
             components: {
                 layoutSidenav_content: MangerProductTable
+            },
+        },
+        {
+            path: 'MangerOrder',
+            name: "MangerOrder",
+            components: {
+                layoutSidenav_content: MangerOrderTable
             },
         },
         {

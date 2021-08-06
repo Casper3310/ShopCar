@@ -340,6 +340,20 @@ var render = function() {
                 "router-link",
                 {
                   staticClass: "nav-link",
+                  attrs: { to: { name: "MangerOrder" } }
+                },
+                [
+                  _c("div", { staticClass: "sb-nav-link-icon" }, [
+                    _c("i", { staticClass: "fas fa-tachometer-alt" })
+                  ]),
+                  _vm._v("\n                    訂單管理\n                ")
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "nav-link",
                   attrs: { to: { name: "Original" } }
                 },
                 [

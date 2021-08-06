@@ -29,7 +29,14 @@
                         <td>{{ item.name }}</td>
                         <td>{{ item.price }}</td>
                         <td>{{ item.quantity }}</td>
-                        <td>{{ item.picture_path }}</td>
+                        <td class="img_size_ls">
+                            <img
+                                :src="
+                                    `${$store.state.serverPath}storage/${item.picture_path}`
+                                "
+                                alt=""
+                            />
+                        </td>
                         <td>
                             <div
                                 class="btn-group"
@@ -126,7 +133,28 @@
                                                 >數量</label
                                             >
                                         </div>
-
+                                        <div class="form-floating mb-3">
+                                            <div class="custom-file">
+                                                <input
+                                                    type="file"
+                                                    class="custom-file-input"
+                                                    id="productpicture"
+                                                    ref="UpLoadimage"
+                                                    @change="attachImage"
+                                                />
+                                                <label
+                                                    class="input-group-text"
+                                                    for="productpicture"
+                                                    >選擇檔案</label
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="img_size">
+                                            <img
+                                                ref="NewImage"
+                                                v-if="productdata.picture"
+                                            />
+                                        </div>
                                         <div
                                             class="d-flex align-items-center justify-content-end mt-4 mb-0"
                                         >
@@ -166,7 +194,8 @@ export default {
             productdata: {
                 name: "",
                 price: 0,
-                quantity: 0
+                quantity: 0,
+                picture: null
             },
             edit: false,
             editIndex: 0
@@ -185,22 +214,28 @@ export default {
             }
         },
         CreateProduct: async function() {
+            let formdata = new FormData();
+            formdata.append("name", this.productdata.name);
+            formdata.append("price", this.productdata.price);
+            formdata.append("quantity", this.productdata.quantity);
+            formdata.append("picture", this.productdata.picture);
             if (this.edit) {
                 try {
+                    formdata.append("_method", "put");
                     let index = this.editIndex;
                     const res = await product_serveice.EditProduct(
                         this.ProductList[index].id,
-                        this.productdata
+                        formdata
                     );
+                    console.log(res);
                     this.ProductList.splice(index, 1, res.data);
                 } catch (error) {
                     console.log(error);
                 }
             } else {
                 try {
-                    const res = await product_serveice.CreateProduct(
-                        this.productdata
-                    );
+                    const res = await product_serveice.CreateProduct(formdata);
+                    console.log(res);
                     this.ProductList.push(res.data);
                 } catch (error) {
                     console.log(error);
@@ -256,6 +291,15 @@ export default {
             this.productdata.name = "";
             this.productdata.price = 0;
             this.productdata.quantity = 0;
+            this.productdata.picture = null;
+        },
+        attachImage() {
+            this.productdata.picture = this.$refs.UpLoadimage.files[0];
+            let reader = new FileReader();
+            reader.addEventListener("load", () => {
+                this.$refs.NewImage.src = reader.result;
+            });
+            reader.readAsDataURL(this.productdata.picture);
         }
     },
     watch: {}
@@ -267,5 +311,21 @@ export default {
 }
 .table tbody tr td {
     text-align: center;
+}
+.img_size {
+    max-width: 300px;
+    max-width: 200px;
+}
+.img_size img {
+    width: 100%;
+    height: 100%;
+}
+.img_size_ls {
+    max-width: 100px;
+    max-width: 50px;
+}
+.img_size_ls img {
+    width: 100%;
+    height: 100%;
 }
 </style>

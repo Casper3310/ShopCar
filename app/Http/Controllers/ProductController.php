@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -46,13 +47,15 @@ class ProductController extends Controller
             'name' =>'required|string',
             'price'=>'required|numeric|min:0|max:10000',
             'quantity' =>'required|numeric|min:0|max:999',
+            'image' => 'image|mimes:jpeg,png,jpg',
         ]);
         $user = auth()->user();
+        $path = $request->file('picture')->store('image');
         $shopcar = product::create(['user_id'=>$user->id,
                                     'name'=>$request->name,
                                     'price'=>$request->price,
                                     'quantity'=>$request->quantity,
-                                    'picture_path'=>""]);
+                                    'picture_path'=>$path]);
 
         return response($shopcar);
     }
@@ -92,17 +95,22 @@ class ProductController extends Controller
             'name' =>'required|string',
             'price'=>'required|numeric|min:0|max:10000',
             'quantity' =>'required|numeric|min:0|max:999',
+            'image' => 'image|mimes:jpeg,png,jpg',
         ]);
         $user = auth()->user();
         if(($user->id)!==($product->user_id)){
             return response('非用戶產品');
         }
 
+        if($product->picture_path){
+            Storage::delete($product->picture_path);
+        }
+        $path = $request->file('picture')->store('image');
         $product->update([  'user_id'=>$user->id,
                             'name'=>$request->name,
                             'price'=>$request->price,
                             'quantity'=>$request->quantity,
-                            'picture_path'=>""]);
+                            'picture_path'=>$path]);
 
         return response($product);
     }
@@ -119,6 +127,7 @@ class ProductController extends Controller
         if(($user->id)!==($product->user_id)){
             return response('非用戶產品');
         }
+        Storage::delete($product->picture_path);
 
         $product->delete();
         return response('刪除成功');

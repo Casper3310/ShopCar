@@ -3,6 +3,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+import * as Login_Servercie from "./serveices/Login_serveice";
 export default new Vuex.Store({
 
     state: {
@@ -51,8 +52,11 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        SetToken(context, playload) {
-            context.commit('SetToken', playload);
+
+        LoadShopCar(context, playload) {
+
+            Login_Servercie.LoadShopCar().then(response => context.commit('LoadShopCar', response.data));
+
         }
     }
 })

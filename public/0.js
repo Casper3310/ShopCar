@@ -139,9 +139,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     SubmitLogin: function () {
       var _SubmitLogin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this = this;
-
-        var res, shopcar;
+        var res;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -163,16 +161,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 10:
                 this.HideLoginModal();
-                _context.next = 13;
-                return _serveices_Login_serveice__WEBPACK_IMPORTED_MODULE_1__["LoadShopCar"]();
+                this.$store.dispatch("LoadShopCar");
 
-              case 13:
-                shopcar = _context.sent.data;
-                shopcar.forEach(function (element) {
-                  _this.$store.commit("SetShopCar", element);
-                });
-
-              case 15:
+              case 12:
               case "end":
                 return _context.stop();
             }
