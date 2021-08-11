@@ -1,21 +1,9 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <router-link class="navbar-brand" to="/">首頁</router-link>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <router-link class="navbar-brand" to="/">首頁</router-link>
                     <li class="nav-item" v-if="this.$store.state.isLog">
                         <a type="button" class="nav-link"
                             >使用者:{{ this.$store.state.user.user.name }}</a
@@ -81,6 +69,16 @@ export default {
                 console.log(error);
             }
             this.$store.commit("SetShopCar");
+        },
+        test: async function() {
+            try {
+                const res = await Login_Servercie.test();
+                document.write(res.data);
+                //window.open(res.data);
+                //document.location.href = res.data;
+            } catch (error) {
+                console.log(error);
+            }
         }
     },
     watch: {}

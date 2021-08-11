@@ -152,8 +152,8 @@ export default {
     text-align: center;
 }
 .img_size_ls {
-    max-width: 200px;
-    max-height: 100px;
+    max-width: 50px;
+    max-height: 25px;
 }
 .img_size img {
     width: 100%;

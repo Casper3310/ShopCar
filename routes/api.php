@@ -33,3 +33,8 @@ route::group(['middleware'=>'auth:api'],function(){
     Route::resource('order', 'OrderController');
     
 });
+
+Route::post('order/CallBack','OrderController@CallBack');
+
+Route::get('test','TestController@test');
+Route::post('CallBack','TestController@CallBack');

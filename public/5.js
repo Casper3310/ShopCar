@@ -5,9 +5,173 @@
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ShopCar/shopcar.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\XAMMP\\htdocs\\shopcar\\resources\\js\\components\\ShopCar\\shopcar.vue: Unterminated regular expression. (79:25)\n\n\u001b[0m \u001b[90m 77 |\u001b[39m         }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 78 |\u001b[39m         \u001b[33mCheckOut\u001b[39m() {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m             router\u001b[33m.\u001b[39mpush(\u001b[33m/\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 80 |\u001b[39m             \u001b[36mreturn\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 81 |\u001b[39m             \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m shopcar_serveice\u001b[0m\n\u001b[0m \u001b[90m 82 |\u001b[39m                 \u001b[33m.\u001b[39m\u001b[33mCheckOut\u001b[39m()\u001b[0m\n    at Parser._raise (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:788:17)\n    at Parser.raiseWithData (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:781:17)\n    at Parser.raise (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:742:17)\n    at Parser.readRegexp (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:9078:20)\n    at Parser.parseExprAtom (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11215:16)\n    at Parser.parseExprSubscripts (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10914:23)\n    at Parser.parseUpdate (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10894:21)\n    at Parser.parseMaybeUnary (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10872:23)\n    at Parser.parseExprOps (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10733:23)\n    at Parser.parseMaybeConditional (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10707:23)\n    at Parser.parseMaybeAssign (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10670:21)\n    at D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10632:39\n    at Parser.allowInAnd (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12378:12)\n    at Parser.parseMaybeAssignAllowIn (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10632:17)\n    at Parser.parseExprListItem (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12120:18)\n    at Parser.parseCallExpressionArguments (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11118:22)\n    at Parser.parseCoverCallAndAsyncArrowHead (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:11025:29)\n    at Parser.parseSubscript (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10958:19)\n    at Parser.parseSubscripts (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10931:19)\n    at Parser.parseExprSubscripts (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10920:17)\n    at Parser.parseUpdate (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10894:21)\n    at Parser.parseMaybeUnary (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10872:23)\n    at Parser.parseExprOps (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10733:23)\n    at Parser.parseMaybeConditional (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10707:23)\n    at Parser.parseMaybeAssign (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10670:21)\n    at Parser.parseExpressionBase (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10610:23)\n    at D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10604:39\n    at Parser.allowInAnd (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12372:16)\n    at Parser.parseExpression (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:10604:17)\n    at Parser.parseStatementContent (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12711:23)\n    at Parser.parseStatement (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12580:17)\n    at Parser.parseBlockOrModuleBlockBody (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:13169:25)\n    at Parser.parseBlockBody (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:13160:10)\n    at Parser.parseBlock (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:13144:10)\n    at Parser.parseFunctionBody (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12033:24)\n    at Parser.parseFunctionBodyAndFinish (D:\\XAMMP\\htdocs\\shopcar\\node_modules\\@babel\\parser\\lib\\index.js:12017:10)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _serveices_shopcar_serveice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../serveices/shopcar_serveice */ "./resources/js/serveices/shopcar_serveice.js");
+/* harmony import */ var _ShopHome_Navigation_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ShopHome/Navigation.vue */ "./resources/js/components/ShopHome/Navigation.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Navigation: _ShopHome_Navigation_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {};
+  },
+  computed: {
+    total: function total() {
+      var total = 0;
+      this.$store.state.shopcar.forEach(function (element) {
+        total = element.product.price * element.quantity + total;
+      });
+      return total;
+    }
+  },
+  mounted: function mounted() {
+    this.LoadShopCar();
+  },
+  methods: {
+    CancleShopCar: function () {
+      var _CancleShopCar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(index, shopcarID) {
+        var _res;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return _serveices_shopcar_serveice__WEBPACK_IMPORTED_MODULE_1__["DeleteShopCar"](shopcarID);
+
+              case 3:
+                _res = _context.sent.data;
+                _context.next = 8;
+                break;
+
+              case 6:
+                _context.prev = 6;
+                _context.t0 = _context["catch"](0);
+
+              case 8:
+                this.$store.commit("CancleShopCar", index);
+
+              case 9:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 6]]);
+      }));
+
+      function CancleShopCar(_x, _x2) {
+        return _CancleShopCar.apply(this, arguments);
+      }
+
+      return CancleShopCar;
+    }(),
+    CheckOut: function CheckOut() {
+      var res = _serveices_shopcar_serveice__WEBPACK_IMPORTED_MODULE_1__["CheckOut"]().then(function (res) {
+        return console.log(res.data);
+      });
+      location.href = "/";
+    },
+    LoadShopCar: function () {
+      var _LoadShopCar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _res2;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return _serveices_shopcar_serveice__WEBPACK_IMPORTED_MODULE_1__["LoadShopCar"]();
+
+              case 3:
+                _res2 = _context2.sent;
+                this.$store.commit("LoadShopCar", _res2.data);
+                _context2.next = 10;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                console.log(res);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 7]]);
+      }));
+
+      function LoadShopCar() {
+        return _LoadShopCar.apply(this, arguments);
+      }
+
+      return LoadShopCar;
+    }()
+  },
+  destroy: function destroy() {}
+});
 
 /***/ }),
 
@@ -256,6 +420,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_shopcar_vue_vue_type_template_id_4ee616f2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/serveices/shopcar_serveice.js":
+/*!****************************************************!*\
+  !*** ./resources/js/serveices/shopcar_serveice.js ***!
+  \****************************************************/
+/*! exports provided: LoadShopCar, StoreShopCar, DeleteShopCar, CheckOut */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadShopCar", function() { return LoadShopCar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreShopCar", function() { return StoreShopCar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteShopCar", function() { return DeleteShopCar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheckOut", function() { return CheckOut; });
+/* harmony import */ var _http_serveice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_serveice */ "./resources/js/serveices/http_serveice.js");
+
+function LoadShopCar() {
+  return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["httpToken"])().get('shopcar');
+}
+function StoreShopCar(shopcardata) {
+  return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["httpToken"])().post('shopcar', shopcardata);
+}
+function DeleteShopCar(productID) {
+  return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["httpToken"])()["delete"]("shopcar/".concat(productID));
+}
+function CheckOut() {
+  return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["httpToken"])().post("shopcar/checkout");
+}
 
 /***/ })
 

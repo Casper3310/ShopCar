@@ -15,3 +15,7 @@ export function Logout() {
 export function LoadShopCar() {
     return httpToken().get('shopcar');
 }
+
+export function test() {
+    return http().get('test');
+}

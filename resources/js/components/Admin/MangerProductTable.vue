@@ -321,8 +321,8 @@ export default {
     height: 100%;
 }
 .img_size_ls {
-    max-width: 100px;
     max-width: 50px;
+    max-width: 25px;
 }
 .img_size_ls img {
     width: 100%;

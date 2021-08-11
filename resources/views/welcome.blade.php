@@ -8,7 +8,7 @@
         content="width=device-width, initial-scale=1"
     >
 
-    <title>Laravel</title>
+    <title>購物車</title>
 
     <!-- Fonts -->
     <link

@@ -19,7 +19,14 @@
                 >
                     <tr>
                         <td>{{ index + 1 }}</td>
-                        <td>{{ item.product.picture_path }}</td>
+                        <td class="img_size_ls">
+                            <img
+                                :src="
+                                    `${$store.state.serverPath}storage/${item.product.picture_path}`
+                                "
+                                alt=""
+                            />
+                        </td>
                         <td>{{ item.product.name }}</td>
                         <td>{{ item.product.price }}</td>
                         <td>{{ item.quantity }}</td>
@@ -75,11 +82,9 @@ export default {
             } catch (error) {}
             this.$store.commit("CancleShopCar", index);
         },
-        CheckOut() {
-            const res = shopcar_serveice
-                .CheckOut()
-                .then(res => console.log(res.data));
-            location.href = "/";
+        CheckOut: async function() {
+            const res = await shopcar_serveice.CheckOut();
+            document.write(res.data);
         },
         LoadShopCar: async function() {
             try {

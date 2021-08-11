@@ -24,7 +24,7 @@ class shopcar extends Model
         return $this->belongsTo('App\product');
     }
 
-    public function checkout(){
+    public function checkout($OrderNumber){
 
         if($this->user->level === 2){
             $this->rate = 0.7;
@@ -38,7 +38,8 @@ class shopcar extends Model
                 'seller_id'=>$seller_id,
                 'product_id'=>$this->product_id,
                 'quantity'=>$this->quantity,
-                'price'=>$price * $this->quantity,]);
+                'price'=>$price * $this->quantity,
+                'OrderNumber'=>$OrderNumber]);
         $this->update(['check_out'=>true]);
 
         $this->product->update(['quantity'=>$this->product->quantity-$this->quantity]);

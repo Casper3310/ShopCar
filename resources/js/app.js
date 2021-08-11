@@ -34,16 +34,14 @@ import store from './store'
 
 import App from './App.vue'
 import router from './router'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap'
+
 import FlashMessage from '@smartweb/vue-flash-message';
 
 Vue.use(FlashMessage);
 
-const app = new Vue({
+new Vue({
     el: '#app',
     router,
     store,
     render: h => h(App)
-
 });

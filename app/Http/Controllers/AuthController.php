@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+
     //
     public function register(CreateUser $request){
 
         $validata = $request->validated();
-
         $user = New User([
             'name' => $validata['name'],
             'email' => $validata['email'],
@@ -28,9 +28,11 @@ class AuthController extends Controller
             'email' =>'required|email|string',
             'password'=>'required|string'
         ]);
+
         if(!Auth::attempt($validata)){
             return response('登入失敗',401);
         }
+
         $user =  $request->user();
         $tokenResult = $user->createToken('Token');
         $tokenResult->token->save();

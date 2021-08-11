@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public function CallBack(Request $request){ 
+
+        $OrderNumber = $request->MerchantTradeNo;
+        $orders = order::where('OrderNumber','=',$OrderNumber)->get();
+        foreach ($orders as $order) {
+            $order->update(['Shipment'=>1]);
+        }
+
+    }
+
     public function LoadCancelOrder()
     {
         $userID = auth()->user()->id;
@@ -26,6 +36,7 @@ class OrderController extends Controller
         $order = order::where('seller_id','=',$userID)
                         ->where('Cancel','=',0)
                         ->with('product')->with('user')->get();
+        
         return $order ;
     }
 
