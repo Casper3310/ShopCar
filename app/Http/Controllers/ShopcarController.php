@@ -5,18 +5,28 @@ namespace App\Http\Controllers;
 use App\shopcar;
 use App\product;
 use Illuminate\Http\Request;
-use Ecpay\Sdk\Factories\Factory;
-use Ecpay\Sdk\Services\UrlService;
-use Ecpay\Sdk\Exceptions\RtnException;
+use App\Http\Services\ECPlayService;
+use App\Http\Services\AWSService;
+use Illuminate\Support\Facades\DB;
 
 class ShopcarController extends Controller
 {
+    protected $ECPlayService;
+    protected $AWSService;
+
+    public function __construct(ECPlayService $ECPlayService,AWSService $AWSService)
+    {
+        $this->ECPlayService = $ECPlayService;
+        $this->AWSService = $AWSService;
+    }
+
+
     public function checkout(){
         $user = auth()->user();
         $shopcars = shopcar::where('user_id','=',$user->id)
                             ->where('check_out','=',0)
                             ->get();
-        
+
         if(count($shopcars)==0){
             return response('無購物車項目');
         }
@@ -27,9 +37,10 @@ class ShopcarController extends Controller
             }            
         }
 
+        $OrderNumber = $user->id.'ID' . time();
         $ItemName="";
         $TotalAmount=0;
-        $OrderNumber = $user->id.'ID' . time();
+
         foreach ($shopcars as  $shopcar) {
             $price = $shopcar->product->price;
 
@@ -38,34 +49,9 @@ class ShopcarController extends Controller
             $ItemName =$ItemName."$pruduct $price X $shopcar->quantity"."#";
             $TotalAmount+=$price*$shopcar->quantity;
         }
-
-        try {
-            $factory = new Factory([
-                'hashKey' => '5294y06JbISpM5x9',
-                'hashIv' => 'v77hoKGq4kWxNNIS',
-            ]);
-            $autoSubmitFormService = $factory->create('AutoSubmitFormWithCmvService');
-        
-            $input = [
-                'MerchantID' => '2000132',
-                //MerchantTradeNo 特店交易編號均為唯一值，不可重複使用。
-                'MerchantTradeNo' => $OrderNumber,
-                'MerchantTradeDate' => date('Y/m/d H:i:s'),
-                'PaymentType' => 'aio',
-                'TotalAmount' => $TotalAmount,
-                'TradeDesc' => UrlService::ecpayUrlEncode('測試交易描述'),
-                'ItemName' => $ItemName,
-                'ReturnURL' => 'https://shopcar.hopto.org/api/order/CallBack',
-                'ClientBackURL' =>'https://shopcar.hopto.org/',
-                'ChoosePayment' => 'Credit',
-                'EncryptType' => 1,
-            ];
-            $action = 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5';
-            return $autoSubmitFormService->generate($input, $action);
-        } catch (RtnException $e) {
-            return '(' . $e->getCode() . ')' . $e->getMessage() . PHP_EOL;
-        }
-
+        $message = '已送出訂單';
+        $this->AWSService->send_email($message);
+        return $this->ECPlayService->credit_play($OrderNumber,$ItemName,$TotalAmount);
     }
 
 

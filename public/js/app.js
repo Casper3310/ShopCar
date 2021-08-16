@@ -2156,40 +2156,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -5465,43 +5431,6 @@ var render = function() {
         ],
         2
       )
-    ]),
-    _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
-      _c(
-        "table",
-        { staticClass: "table table-hover" },
-        [
-          _vm._m(3),
-          _vm._v(" "),
-          _vm._l(_vm.CancleOrderList, function(item, index) {
-            return _c("tbody", { key: index }, [
-              _c("tr", [
-                _c("td", [_vm._v(_vm._s(index + 1))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item.user.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item.user.level))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item.product.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item.product.price))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item.quantity))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item.price))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item.product.picture_path))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item.Shipment))])
-              ])
-            ])
-          })
-        ],
-        2
-      )
     ])
   ])
 }
@@ -5542,45 +5471,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("商品圖片")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("操作")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("是否付費")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "card-header d-flex justify-content-center" },
-      [
-        _c("i", { staticClass: "fas fa-table me-1" }),
-        _vm._v("\n        取消訂單\n    ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("買家")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("打折等級")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("商品")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("價格")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("數量")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("總價格")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("商品圖片")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("是否付費")])
       ])
@@ -24295,23 +24185,23 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-  /*
-      state: {
-          apiURL: 'http://localhost/api/',
-          serverPath: 'http://localhost/',
-          user: {},
-          isLog: false,
-          shopcar: []
-      },
-  
-      */
   state: {
-    apiURL: 'https://shopcar.hopto.org/api/',
-    serverPath: 'https://shopcar.hopto.org/',
+    apiURL: 'http://localhost/api/',
+    serverPath: 'http://localhost/',
     user: {},
     isLog: false,
     shopcar: []
   },
+
+  /*
+      state: {
+          apiURL: 'https://shopcar.hopto.org/api/',
+          serverPath: 'https://shopcar.hopto.org/',
+          user: {},
+          isLog: false,
+          shopcar: [],
+      },
+  */
   mutations: {
     Login: function Login(state, userdata) {
       localStorage.setItem("user", JSON.stringify(userdata));

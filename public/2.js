@@ -145,6 +145,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 res = _context2.sent;
+                //console.log(res);
                 document.write(res.data);
 
               case 4:

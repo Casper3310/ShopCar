@@ -5,24 +5,24 @@ Vue.use(Vuex);
 
 import * as Login_Servercie from "./serveices/Login_serveice";
 export default new Vuex.Store({
-    /*
-        state: {
-            apiURL: 'http://localhost/api/',
-            serverPath: 'http://localhost/',
-            user: {},
-            isLog: false,
-            shopcar: []
-        },
-    
-        */
+
     state: {
-        apiURL: 'https://shopcar.hopto.org/api/',
-        serverPath: 'https://shopcar.hopto.org/',
+        apiURL: 'http://localhost/api/',
+        serverPath: 'http://localhost/',
         user: {},
         isLog: false,
-        shopcar: [],
+        shopcar: []
     },
 
+    /*
+        state: {
+            apiURL: 'https://shopcar.hopto.org/api/',
+            serverPath: 'https://shopcar.hopto.org/',
+            user: {},
+            isLog: false,
+            shopcar: [],
+        },
+    */
     mutations: {
         Login(state, userdata) {
             localStorage.setItem("user", JSON.stringify(userdata));

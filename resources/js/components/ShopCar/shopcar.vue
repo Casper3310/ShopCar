@@ -84,6 +84,7 @@ export default {
         },
         CheckOut: async function() {
             const res = await shopcar_serveice.CheckOut();
+            //console.log(res);
             document.write(res.data);
         },
         LoadShopCar: async function() {

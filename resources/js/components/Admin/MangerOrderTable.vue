@@ -60,40 +60,6 @@
                 </tbody>
             </table>
         </div>
-        <div class="card-header d-flex justify-content-center">
-            <i class="fas fa-table me-1"></i>
-            取消訂單
-        </div>
-        <div class="card-body">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">買家</th>
-                        <th scope="col">打折等級</th>
-                        <th scope="col">商品</th>
-                        <th scope="col">價格</th>
-                        <th scope="col">數量</th>
-                        <th scope="col">總價格</th>
-                        <th scope="col">商品圖片</th>
-                        <th scope="col">是否付費</th>
-                    </tr>
-                </thead>
-                <tbody v-for="(item, index) in CancleOrderList" :key="index">
-                    <tr>
-                        <td>{{ index + 1 }}</td>
-                        <td>{{ item.user.name }}</td>
-                        <td>{{ item.user.level }}</td>
-                        <td>{{ item.product.name }}</td>
-                        <td>{{ item.product.price }}</td>
-                        <td>{{ item.quantity }}</td>
-                        <td>{{ item.price }}</td>
-                        <td>{{ item.product.picture_path }}</td>
-                        <td>{{ item.Shipment }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 </template>
 <script>
