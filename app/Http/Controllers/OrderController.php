@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\order;
 use Illuminate\Http\Request;
+use App\Http\Services\AWSService;
 
 class OrderController extends Controller
 {
+    protected $AWSService;
+
+    public function __construct(AWSService $AWSService)
+    {
+        $this->AWSService = $AWSService;
+    }
+
     public function CallBack(Request $request){ 
 
         $OrderNumber = $request->MerchantTradeNo;
@@ -14,6 +22,9 @@ class OrderController extends Controller
         foreach ($orders as $order) {
             $order->update(['Shipment'=>1]);
         }
+
+        $message = $OrderNumber.'已結帳';
+        $this->AWSService->send_email($message);
 
     }
 

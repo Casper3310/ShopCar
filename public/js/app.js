@@ -2866,10 +2866,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2880,6 +2876,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       errors: ""
     };
+  },
+  mounted: function mounted() {
+    if (this.$route.query.code) {
+      this.GithubLoginCallback();
+    }
   },
   methods: {
     SubmitLogin: function () {
@@ -2933,7 +2934,79 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     HideLoginModal: function HideLoginModal() {
       $("#LoginModal").modal("hide");
-    }
+    },
+    GithubLogin: function () {
+      var _GithubLogin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return _serveices_Login_serveice__WEBPACK_IMPORTED_MODULE_1__["GithubLogin"]();
+
+              case 3:
+                res = _context2.sent;
+                window.location.href = res.data;
+                _context2.next = 10;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 7]]);
+      }));
+
+      function GithubLogin() {
+        return _GithubLogin.apply(this, arguments);
+      }
+
+      return GithubLogin;
+    }(),
+    GithubLoginCallback: function () {
+      var _GithubLoginCallback = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return _serveices_Login_serveice__WEBPACK_IMPORTED_MODULE_1__["GithubCallback"](this.$route.query.code);
+
+              case 3:
+                res = _context3.sent;
+                this.$store.commit("Login", res.data);
+                _context3.next = 10;
+                break;
+
+              case 7:
+                _context3.prev = 7;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 7]]);
+      }));
+
+      function GithubLoginCallback() {
+        return _GithubLoginCallback.apply(this, arguments);
+      }
+
+      return GithubLoginCallback;
+    }()
   }
 });
 
@@ -6194,7 +6267,21 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
-                        _vm._m(1),
+                        _c("div", { staticClass: "form-check mb-3" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: { type: "button" },
+                              on: { click: _vm.GithubLogin }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                            Github登入\n                                        "
+                              )
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -6281,26 +6368,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-check mb-3" }, [
-      _c("input", {
-        staticClass: "form-check-input",
-        attrs: { id: "inputRememberPassword", type: "checkbox", value: "" }
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        {
-          staticClass: "form-check-label",
-          attrs: { for: "inputRememberPassword" }
-        },
-        [_vm._v("記住我")]
       )
     ])
   }
@@ -24032,13 +24099,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!**************************************************!*\
   !*** ./resources/js/serveices/Login_serveice.js ***!
   \**************************************************/
-/*! exports provided: Register, Login, Logout, LoadShopCar, test */
+/*! exports provided: Register, Login, GithubLogin, GithubCallback, Logout, LoadShopCar, test */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Register", function() { return Register; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Login", function() { return Login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GithubLogin", function() { return GithubLogin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GithubCallback", function() { return GithubCallback; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Logout", function() { return Logout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadShopCar", function() { return LoadShopCar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "test", function() { return test; });
@@ -24049,6 +24118,16 @@ function Register(RegisterData) {
 }
 function Login(LoginData) {
   return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["http"])().post('Login', LoginData);
+}
+function GithubLogin() {
+  return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["http"])().get('login/github');
+}
+function GithubCallback(playload) {
+  return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["http"])().get('login/github/callback', {
+    params: {
+      code: playload
+    }
+  });
 }
 function Logout() {
   return Object(_http_serveice__WEBPACK_IMPORTED_MODULE_0__["httpToken"])().get('Logout');

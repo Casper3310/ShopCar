@@ -58,17 +58,13 @@
                                             >
                                         </div>
                                         <div class="form-check mb-3">
-                                            <input
-                                                class="form-check-input"
-                                                id="inputRememberPassword"
-                                                type="checkbox"
-                                                value=""
-                                            />
-                                            <label
-                                                class="form-check-label"
-                                                for="inputRememberPassword"
-                                                >記住我</label
+                                            <button
+                                                class="btn btn-primary"
+                                                type="button"
+                                                @click="GithubLogin"
                                             >
+                                                Github登入
+                                            </button>
                                         </div>
                                         <div
                                             class="d-flex align-items-center justify-content-between mt-4 mb-0"
@@ -118,6 +114,11 @@ export default {
             errors: ""
         };
     },
+    mounted() {
+        if (this.$route.query.code) {
+            this.GithubLoginCallback();
+        }
+    },
     methods: {
         SubmitLogin: async function() {
             try {
@@ -140,6 +141,24 @@ export default {
         },
         HideLoginModal() {
             $("#LoginModal").modal("hide");
+        },
+        GithubLogin: async function() {
+            try {
+                const res = await Login_Servercie.GithubLogin();
+                window.location.href = res.data;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        GithubLoginCallback: async function() {
+            try {
+                const res = await Login_Servercie.GithubCallback(
+                    this.$route.query.code
+                );
+                this.$store.commit("Login", res.data);
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 };

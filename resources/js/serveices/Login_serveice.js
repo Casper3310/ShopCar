@@ -8,6 +8,14 @@ export function Login(LoginData) {
     return http().post('Login', LoginData);
 }
 
+export function GithubLogin() {
+    return http().get('login/github');
+}
+
+export function GithubCallback(playload) {
+    return http().get('login/github/callback', { params: { code: playload } });
+}
+
 export function Logout() {
     return httpToken().get('Logout');
 }

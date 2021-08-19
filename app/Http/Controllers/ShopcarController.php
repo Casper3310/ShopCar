@@ -6,7 +6,6 @@ use App\shopcar;
 use App\product;
 use Illuminate\Http\Request;
 use App\Http\Services\ECPlayService;
-use App\Http\Services\AWSService;
 use Illuminate\Support\Facades\DB;
 
 class ShopcarController extends Controller
@@ -14,14 +13,23 @@ class ShopcarController extends Controller
     protected $ECPlayService;
     protected $AWSService;
 
-    public function __construct(ECPlayService $ECPlayService,AWSService $AWSService)
+    public function __construct(ECPlayService $ECPlayService)
     {
         $this->ECPlayService = $ECPlayService;
-        $this->AWSService = $AWSService;
+        
     }
 
 
     public function checkout(){
+        $a = array(
+            null => 'a',
+            true => 'b',
+            false => 'c',
+            0 => 'd',
+            1 => 'e',
+            '' => 'f'
+        );
+        return $a;
         $user = auth()->user();
         $shopcars = shopcar::where('user_id','=',$user->id)
                             ->where('check_out','=',0)
@@ -50,7 +58,7 @@ class ShopcarController extends Controller
             $TotalAmount+=$price*$shopcar->quantity;
         }
         $message = '已送出訂單';
-        $this->AWSService->send_email($message);
+        
         return $this->ECPlayService->credit_play($OrderNumber,$ItemName,$TotalAmount);
     }
 

@@ -38,3 +38,9 @@ Route::post('order/CallBack','OrderController@CallBack');
 
 Route::get('test','TestController@test');
 Route::post('CallBack','TestController@CallBack');
+
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::get('login/google', 'Auth\LoginController@GoogleredirectToProvider');
+Route::get('login/google/callback', 'Auth\LoginController@GooglehandleProviderCallback');
