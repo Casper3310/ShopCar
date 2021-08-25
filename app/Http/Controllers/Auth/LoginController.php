@@ -66,7 +66,6 @@ class LoginController extends Controller
                 'email'=>$githubuser->user['email'],
                 'password'=>$githubuser->user['id'],
                 ];
-
         if(!Auth::attempt($user)){
             $user = New User([
                 'name' => $user['name'],
@@ -87,13 +86,33 @@ class LoginController extends Controller
 
     public function GoogleredirectToProvider()
     {
-        return Socialite::driver('google')->stateless()->redirect();
+        $url = Socialite::driver('google')->stateless()->redirect()->getTargetUrl();
+        return $url;
     }
 
     public function GooglehandleProviderCallback()
     {
         $user = Socialite::driver('google')->stateless()->user();
-        dd($user);
-        // $user->token;
+        
+        $googleuser = Socialite::driver('google')->stateless()->user();
+
+        $user = ['name'=>$googleuser->user['name'],
+                'email'=>$googleuser->user['email'],
+                'password'=>$googleuser->user['id'],
+                ];
+                
+        if(!Auth::attempt($user)){
+            $user = New User([
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'password' => bcrypt($user['password']) ,
+            ]);
+            $user->save();
+        }
+
+        $user = Auth::user();
+        $tokenResult = $user->createToken('Token');
+        $tokenResult->token->save();
+        return response(["token" => $tokenResult->accessToken,"user"=>$user],200);
     }
 }

@@ -16,6 +16,14 @@ export function GithubCallback(playload) {
     return http().get('login/github/callback', { params: { code: playload } });
 }
 
+export function GoogleLogin() {
+    return http().get('login/google');
+}
+
+export function GoogleCallback(playload) {
+    return http().get('login/google/callback', { params: { code: playload } });
+}
+
 export function Logout() {
     return httpToken().get('Logout');
 }
