@@ -31,8 +31,10 @@ route::group(['middleware'=>'auth:api'],function(){
     Route::get('GetUserProduct', 'ProductController@GetUserProduct');
     Route::get('order/LoadCancelOrder', 'OrderController@LoadCancelOrder');
     Route::resource('order', 'OrderController');
-    
+    Route::get('Chat/GetMessage', 'ChatMessageController@index');
+    Route::post('Chat/SendMessage', 'ChatMessageController@SendMessage');
 });
+
 
 Route::post('order/CallBack','OrderController@CallBack');
 

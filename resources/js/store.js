@@ -7,8 +7,8 @@ import * as Login_Servercie from "./serveices/Login_serveice";
 export default new Vuex.Store({
 
     state: {
-        apiURL: 'http://localhost/api/',
-        serverPath: 'http://localhost/',
+        apiURL: 'http://127.0.0.1/api/',
+        serverPath: 'http://127.0.0.1/',
         user: {},
         isLog: false,
         shopcar: []

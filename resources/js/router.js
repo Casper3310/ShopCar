@@ -53,6 +53,11 @@ const routes = [
         }
         ]
     },
+    {
+        path: '/ChatRoom',
+        name: 'ChatRoom',
+        component: () => import('./components/ChatRoom/Chat.vue')
+    },
     /*{
         path: '/station/:stationID',
         name: "station",

@@ -30,6 +30,12 @@
                     <li class="nav-item" v-if="!this.$store.state.isLog">
                         <Register></Register>
                     </li>
+                    <router-link
+                        v-if="this.$store.state.isLog"
+                        class="navbar-brand"
+                        to="ChatRoom"
+                        >聊天室
+                    </router-link>
                 </ul>
 
                 <router-link class="btn btn-outline-dark" to="/shopcar">

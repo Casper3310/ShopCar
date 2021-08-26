@@ -1,5 +1,5 @@
 <?php
-
+use App\Events\DemoEvent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,8 @@
 
 
 Route::get('/{any}', function () {
+    broadcast(new DemoEvent("sssss"));
+    
     return view('welcome');
 })->where('any','.*')->name('home');
 
